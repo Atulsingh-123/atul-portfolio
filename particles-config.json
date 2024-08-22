@@ -1,0 +1,100 @@
+{
+    "particles": {
+      "number": {
+        "value": 250, 
+        "density": {
+          "enable": true,
+          "value_area": 1000 
+        }
+      },
+      "color": {
+        "value": ["#ffffff", "#ff7f50", "#1e90ff", "#32cd32", "#ff69b4"] 
+      },
+      "shape": {
+        "type": ["circle", "triangle", "edge"], 
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        }
+      },
+      "opacity": {
+        "value": 0.7, 
+        "random": true,
+        "anim": {
+          "enable": true,
+          "speed": 1,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 2, 
+        "random": true,
+        "anim": {
+          "enable": true,
+          "speed": 12,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true, 
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 4, 
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": true,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "repulse": {
+          "distance": 200, 
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 6 
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 60,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "grab": {
+          "distance": 200,
+          "line_linked": {
+            "opacity": 1
+          }
+        }
+      }
+    },
+    "retina_detect": true
+  }
+  

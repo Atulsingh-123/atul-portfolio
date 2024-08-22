@@ -1,12 +1,16 @@
-// src/components/Hero.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import Atul from '../assets/Atul.jpeg';
 
 const Hero: React.FC = () => {
 
+  useEffect(() => {
+    // @ts-ignore
+    particlesJS.load('particles-js', 'particles-config.json');
+  }, []);
 
   return (
     <section className="relative bg-cover bg-center h-screen text-white flex items-center justify-center" style={{ backgroundImage: "url('https://img.freepik.com/free-vector/paper-style-dynamic-lines-background_23-2149008629.jpg')" }}>
+      <div id="particles-js" className="absolute inset-0"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-75"></div>
       <div className="relative z-10 container mx-auto flex flex-col items-center md:flex-row md:px-10">
         <div className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 mb-6 md:mb-0 rounded-full overflow-hidden">
@@ -21,9 +25,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
     </section>
-
-
-
   );
 };
 
