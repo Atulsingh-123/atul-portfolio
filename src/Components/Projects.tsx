@@ -1,8 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Project1 from '../assets/Project1.jpg';
-import Project2 from '../assets/Project2.jpg';
+import Project2 from '../assets/caskama.png';
 import Project3 from '../assets/Project3.jpg';
+import Project4 from '../assets/appscrip.png';
+import Project5 from '../assets/laundry.png';
+
 
 interface Project {
     id: string;
@@ -58,6 +61,32 @@ const Projects: React.FC = () => {
             ],
             image: Project3,
             link: 'https://www.voyatekgroup.com/'
+        },
+        {
+            id: 'Appscrip demo',
+            title: 'Ecommerce demo ',
+            technogy: 'HTML, Tailwind, JavaScript, React.js, VS Studio, Material-UI, Typescript, Context-API, Git',
+            description: 'Implemented a modular architecture with reusable components for efficiency.',
+            detailedDescription: [
+                "Implemented a modular architecture with reusable components to maintain consistency and improve development efficiency.",
+                "Used Context API for effective state management across ERP and CRM modules.",
+                "Worked in an Agile environment, actively participating in sprint planning, daily stand-ups, and retrospectives."
+            ],
+            image: Project4,
+            link: 'https://main--appscrip-task-atul-singh.netlify.app/'
+        },
+        {
+            id: 'YB LAUNDRY',
+            title: 'YB LAUNDRY ',
+            technogy: 'HTML, Tailwind, JavaScript, React.js, VS Studio, Material-UI, Typescript, Git',
+            description: 'Implemented a modular architecture with reusable components for efficiency.',
+            detailedDescription: [
+                "Implemented a modular architecture with reusable components to maintain consistency and improve development efficiency.",
+                "Used Context API for effective state management across ERP and CRM modules.",
+                "Worked in an Agile environment, actively participating in sprint planning, daily stand-ups, and retrospectives."
+            ],
+            image: Project5,
+            link: 'https://laundrywash.netlify.app/'
         },
     ];
 
