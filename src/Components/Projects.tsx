@@ -91,7 +91,7 @@ const Projects: React.FC = () => {
         {
             id: 'Foodiee',
             title: 'Foodiee',
-            technogy: 'HTML, Tailwind, JavaScript, React.js, Node.js, Express.js, MongoDB, WebSocket, VS Studio, Material-UI, Typescript, Git',
+            technogy: 'HTML, Tailwind, JavaScript, React.js, Node.js, Express.js, MongoDB, WebSocket, Typescript, Git',
             description: 'Our Restaurant Food Ordering App offers a seamless and convenient dining experience, allowing customers to browse our menu, customize their orders, and place them directly from their mobile devices.',
             detailedDescription: [
                 "Our Restaurant Food Ordering App offers a seamless and convenient dining experience, allowing customers to browse our menu, customize their orders, and place them directly from their mobile devices.",

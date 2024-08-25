@@ -1,4 +1,3 @@
-
 import { FaLinkedin, FaGithubSquare, FaInstagram, FaTwitterSquare } from 'react-icons/fa';
 
 const Footer = () => {
@@ -66,10 +65,10 @@ const Footer = () => {
                         <h6 className="text-lg font-semibold text-gray-400 mb-4">Contact</h6>
                         <ul className="space-y-2 text-sm">
                             <li>
-                                Email: <a href="mailto:atulsingh7102001@gmail.com" className="hover:text-blue-500 transition-colors duration-300">atulsingh7102001@gmail.com</a>
+                                Email: <a href="mailto:atulsingh7102001@gmail.com" className="hover:text-blue-500 transition-colors duration-300 break-words">atulsingh7102001@gmail.com</a>
                             </li>
                             <li>
-                                Phone: <a href="tel:9120599747" className="hover:text-blue-500 transition-colors duration-300">9120599747</a>
+                                Phone: <a href="tel:9120599747" className="hover:text-blue-500 transition-colors duration-300 break-words">9120599747</a>
                             </li>
                         </ul>
                     </div>
