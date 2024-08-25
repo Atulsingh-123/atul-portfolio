@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Project1 from '../assets/Project1.jpg';
-import Project2 from '../assets/caskama.png';
+import Project2 from '../assets/cashkama/caskama.png'
 import Project3 from '../assets/Project3.jpg';
 import Project4 from '../assets/appscrip.png';
 import Project5 from '../assets/laundry.png';
@@ -13,7 +13,7 @@ interface Project {
     technogy: string;
     description: string;
     detailedDescription: string[];
-    image: string;
+    images: string[];
     link: string;
 }
 
@@ -32,7 +32,10 @@ const Projects: React.FC = () => {
                 "Utilized modern frontend technologies, including React.js, Context-API, HTML, CSS, and JavaScript, to create an interactive and dynamic user interface.",
                 "Implemented client-side routing with React Router to improve the overall user experience and page navigation."
             ],
-            image: Project1,
+            images: [
+                Project1,
+                Project1,
+            ],
             link: '/projects/lombaa'
         },
         {
@@ -46,7 +49,10 @@ const Projects: React.FC = () => {
                 "Implemented routing with react-router-dom for seamless navigation and used Tailwind CSS for styling.",
                 "API integrated login, registration, products, add to cart using fetch and Axios libraries."
             ],
-            image: Project2,
+            images: [
+                Project2,
+                Project2
+            ],
             link: 'https://www.cashkama.com/'
         },
         {
@@ -59,7 +65,10 @@ const Projects: React.FC = () => {
                 "Used Context API for effective state management across ERP and CRM modules.",
                 "Worked in an Agile environment, actively participating in sprint planning, daily stand-ups, and retrospectives."
             ],
-            image: Project3,
+            images: [
+                Project3,
+                Project3,
+            ],
             link: 'https://www.voyatekgroup.com/'
         },
         {
@@ -72,7 +81,10 @@ const Projects: React.FC = () => {
                 "Used Context API for effective state management across ERP and CRM modules.",
                 "Worked in an Agile environment, actively participating in sprint planning, daily stand-ups, and retrospectives."
             ],
-            image: Project4,
+            images: [
+                Project4,
+                Project4,
+            ],
             link: 'https://main--appscrip-task-atul-singh.netlify.app/'
         },
         {
@@ -85,7 +97,10 @@ const Projects: React.FC = () => {
                 "Used Context API for effective state management across ERP and CRM modules.",
                 "Worked in an Agile environment, actively participating in sprint planning, daily stand-ups, and retrospectives."
             ],
-            image: Project5,
+            images: [
+                Project5,
+                Project5,
+            ],
             link: 'https://laundrywash.netlify.app/'
         },
         {
@@ -98,7 +113,10 @@ const Projects: React.FC = () => {
                 "Whether dining in or ordering for takeaway, the app provides a user-friendly interface with real-time updates, ensuring that customers receive their meals exactly how they want them.",
                 "Worked in an Agile environment, actively participating in sprint planning, daily stand-ups, and retrospectives."
             ],
-            image: Project6,
+            images: [
+                Project6,
+                Project6,
+            ],
             link: ''
         },
     ];
@@ -113,16 +131,20 @@ const Projects: React.FC = () => {
                 <h2 className="text-3xl md:text-4xl font-semibold text-center">My Projects</h2>
                 <div className="mt-10 grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {projectList.map((project) => (
-                        <div 
-                            key={project.id} 
-                            onClick={() => handleProjectClick(project)} 
+                        <div
+                            key={project.id}
+                            onClick={() => handleProjectClick(project)}
                             className="cursor-pointer hover:no-underline focus:no-underline"
                         >
                             <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
-                                <img src={project.image} alt={project.title} className="w-full h-56 sm:h-64 object-cover" />
+                                {/* Slider Implementation */}
+                                <ImageSlider images={project.images} />
                                 <div className="p-6">
                                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                                    <h4 className="text-lg mb-2"><span className="text-lg font-semibold mb-2">Technology Used: </span>{project.technogy}</h4>
+                                    <h4 className="text-lg mb-2">
+                                        <span className="text-lg font-semibold mb-2">Technology Used: </span>
+                                        {project.technogy}
+                                    </h4>
                                 </div>
                             </div>
                         </div>
@@ -130,6 +152,38 @@ const Projects: React.FC = () => {
                 </div>
             </div>
         </section>
+    );
+};
+
+const ImageSlider: React.FC<{ images: string[] }> = ({ images }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 3000); 
+
+        return () => clearInterval(interval);
+    }, [images.length]);
+
+    return (
+        <div className="relative w-full h-56 sm:h-64 overflow-hidden">
+            <div
+                className="flex transition-transform duration-500"
+                style={{
+                    transform: `translateX(-${currentIndex * 100}%)`,
+                }}
+            >
+                {images.map((image, index) => (
+                    <img
+                        key={index}
+                        src={image}
+                        alt={`Slide ${index}`}
+                        className="w-full h-full object-cover flex-shrink-0"
+                    />
+                ))}
+            </div>
+        </div>
     );
 };
 

@@ -1,14 +1,16 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Layout from './Layout';
-
+import Slider from './Slider';
+import { motion } from 'framer-motion';
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 interface Project {
     title: string;
     technogy: string;
     description: string;
     detailedDescription: string[];
-    image: string;
-    link: string; // Add link to the Project interface
+    images: string[];
+    link: string;
 }
 
 const ProjectDetail: React.FC = () => {
@@ -16,55 +18,87 @@ const ProjectDetail: React.FC = () => {
     const navigate = useNavigate();
     const { project } = location.state as { project: Project };
 
+    console.log('Project images:', project.images);
     const handleBack = () => {
         navigate('/');
     };
-
+    console.log(project.images);
     return (
         <Layout>
-        <div className="container mx-auto px-6 md:px-12 py-20">
-            <div className="flex flex-col md:flex-row items-center justify-between mb-6">
-                <div className="flex mb-4 md:mb-0">
-                    <button
-                        onClick={handleBack}
-                        className="bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 transition duration-300"
+            <motion.div className="flex items-center justify-center h-6 bg-gradient-to-r from-blue-500 to-purple-600">
+                Portfolio
+            </motion.div>
+            <div className="container mx-auto px-4 md:px-8 py-12">
+                <div className="flex flex-col md:flex-row items-center justify-between mb-8">
+                    <motion.div
+                        className="flex items-center w-full md:w-auto"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
                     >
-                        Back to Home
-                    </button>
+                        <motion.button
+                            onClick={handleBack}
+                            className="flex items-center mr-2 text-blue-600"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <IoArrowBackCircleOutline className=" size-16" /> 
+                        </motion.button>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
+                            {project.title}
+                        </h2>
+                    </motion.div>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 flex-grow underline">
-                    {project.title}
-                </h2>
-            </div>
-
-
-            <div className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src={project.image} alt={project.title} className="w-full md:w-1/2 object-cover mb-6 md:mb-0 md:mr-6" />
-                <div className="md:w-1/2 p-6 bg-gradient-to-r from-blue-50 to-blue-100">
-                    <h4 className="text-2xl font-semibold text-gray-700 mb-4">Technology Used:</h4>
-                    <p className="mb-6 text-lg text-gray-600">{project.technogy}</p>
-                    <h4 className="text-2xl font-semibold text-gray-700 mb-4">Description:</h4>
-                    <p className="text-lg text-gray-600">{project.description}</p>
-                    <h4 className="text-2xl font-semibold text-gray-700 mb-4">Detailed Description:</h4>
-                    <ul className="list-disc list-inside text-lg text-gray-600">
-                        {project.detailedDescription.map((line, index) => (
-                            <li key={index}>{line}</li>
-                        ))}
-                    </ul>
-                    {/* Add project link section */}
-                    <div className="mt-6">
+                <Slider images={project.images} />
+                <div className="relative bg-white p-6 rounded-lg shadow-lg mt-6">
+                    <motion.div
+                        className="mb-6"
+                        initial={{ x: -50, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <h4 className="text-xl font-semibold text-gray-800 mb-2">Technology Used</h4>
+                        <p className="text-lg text-gray-600">{project.technogy}</p>
+                    </motion.div>
+                    <motion.div
+                        className="mb-6"
+                        initial={{ x: -50, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        <h4 className="text-xl font-semibold text-gray-800 mb-2">Description</h4>
+                        <p className="text-lg text-gray-600">{project.description}</p>
+                    </motion.div>
+                    <motion.div
+                        className="mb-6"
+                        initial={{ x: -50, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                    >
+                        <h4 className="text-xl font-semibold text-gray-800 mb-2">Detailed Description</h4>
+                        <ul className="list-disc list-inside text-lg text-gray-600 space-y-2">
+                            {project.detailedDescription.map((line, index) => (
+                                <li key={index}>{line}</li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                    <motion.div
+                        className="mt-6"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.6 }}
+                    >
                         <a
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-500 hover:underline"
+                            className="text-blue-600 hover:text-blue-800 underline text-lg"
                         >
                             View Live Project
                         </a>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-        </div>
         </Layout>
     );
 };
