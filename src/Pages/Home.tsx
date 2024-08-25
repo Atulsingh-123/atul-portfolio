@@ -10,7 +10,7 @@ import Footer from '../Components/Footer';
 const Home: React.FC = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <About />
       <Projects />
