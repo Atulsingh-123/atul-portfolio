@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import Atul from '../assets/Atul.jpeg';
 import Logo from '../assets/Test.png';
 import ParticlesBg from 'particles-bg';
-import { Canvas } from '@react-three/fiber';
-import { Stars } from '@react-three/drei';
 
 const HeroNavbar: React.FC = () => {
 
