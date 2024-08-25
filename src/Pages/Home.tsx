@@ -1,19 +1,22 @@
-// src/pages/Home.tsx
-import React from 'react';
-import Hero from '../Components/Hero';
-import About from '../Components/About';
-import Projects from '../Components/Projects';
-import Contact from '../Components/Contact';
-import Footer from '../Components/Footer';
+import React, { Suspense, lazy } from 'react';
+import Hero from '../Components/Hero'; 
+
+
+const About = lazy(() => import('../Components/About'));
+const Projects = lazy(() => import('../Components/Projects'));
+const Contact = lazy(() => import('../Components/Contact'));
+const Footer = lazy(() => import('../Components/Footer'));
 
 const Home: React.FC = () => {
   return (
     <>
       <Hero />
-      <About />
-      <Projects />
-      <Contact />
-      <Footer />
+      <Suspense fallback={<div>Loading...</div>}>
+        <About />
+        <Projects />
+        <Contact />
+        <Footer />
+      </Suspense>
     </>
   );
 };

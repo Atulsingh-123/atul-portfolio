@@ -3,7 +3,7 @@ import Atul from '../assets/Atul.jpeg';
 import Logo from '../assets/Test.png';
 import ParticlesBg from 'particles-bg';
 
-const HeroNavbar: React.FC = () => {
+const Hero: React.FC = () => {
 
   useEffect(() => {
     // @ts-ignore
@@ -50,4 +50,4 @@ const HeroNavbar: React.FC = () => {
   );
 };
 
-export default HeroNavbar;
+export default React.memo(Hero);
