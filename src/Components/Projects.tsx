@@ -5,7 +5,7 @@ import Project2 from '../assets/caskama.png';
 import Project3 from '../assets/Project3.jpg';
 import Project4 from '../assets/appscrip.png';
 import Project5 from '../assets/laundry.png';
-
+import Project6 from '../assets/foodorder.png';
 
 interface Project {
     id: string;
@@ -64,7 +64,7 @@ const Projects: React.FC = () => {
         },
         {
             id: 'Appscrip demo',
-            title: 'Ecommerce demo ',
+            title: 'Ecommerce demo',
             technogy: 'HTML, Tailwind, JavaScript, React.js, VS Studio, Material-UI, Typescript, Context-API, Git',
             description: 'Implemented a modular architecture with reusable components for efficiency.',
             detailedDescription: [
@@ -77,7 +77,7 @@ const Projects: React.FC = () => {
         },
         {
             id: 'YB LAUNDRY',
-            title: 'YB LAUNDRY ',
+            title: 'YB LAUNDRY',
             technogy: 'HTML, Tailwind, JavaScript, React.js, VS Studio, Material-UI, Typescript, Git',
             description: 'Implemented a modular architecture with reusable components for efficiency.',
             detailedDescription: [
@@ -88,6 +88,19 @@ const Projects: React.FC = () => {
             image: Project5,
             link: 'https://laundrywash.netlify.app/'
         },
+        {
+            id: 'Foodiee',
+            title: 'Foodiee',
+            technogy: 'HTML, Tailwind, JavaScript, React.js, Node.js, Express.js, MongoDB, WebSocket, VS Studio, Material-UI, Typescript, Git',
+            description: 'Our Restaurant Food Ordering App offers a seamless and convenient dining experience, allowing customers to browse our menu, customize their orders, and place them directly from their mobile devices.',
+            detailedDescription: [
+                "Our Restaurant Food Ordering App offers a seamless and convenient dining experience, allowing customers to browse our menu, customize their orders, and place them directly from their mobile devices.",
+                "Whether dining in or ordering for takeaway, the app provides a user-friendly interface with real-time updates, ensuring that customers receive their meals exactly how they want them.",
+                "Worked in an Agile environment, actively participating in sprint planning, daily stand-ups, and retrospectives."
+            ],
+            image: Project6,
+            link: ''
+        },
     ];
 
     const handleProjectClick = (project: Project) => {
@@ -96,9 +109,9 @@ const Projects: React.FC = () => {
 
     return (
         <section id="projects" className="py-20 bg-gray-100">
-            <div className="container mx-auto px-6 md:px-12">
+            <div className="container mx-auto px-4 md:px-12">
                 <h2 className="text-3xl md:text-4xl font-semibold text-center">My Projects</h2>
-                <div className="mt-10 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-10 grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {projectList.map((project) => (
                         <div 
                             key={project.id} 
@@ -106,11 +119,10 @@ const Projects: React.FC = () => {
                             className="cursor-pointer hover:no-underline focus:no-underline"
                         >
                             <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
-                                <img src={project.image} alt={project.title} className="w-full h-56 object-cover" />
+                                <img src={project.image} alt={project.title} className="w-full h-56 sm:h-64 object-cover" />
                                 <div className="p-6">
                                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                                     <h4 className="text-lg mb-2"><span className="text-lg font-semibold mb-2">Technology Used: </span>{project.technogy}</h4>
-                                    {/* <p className="text-gray-700">{project.description}</p> */}
                                 </div>
                             </div>
                         </div>
