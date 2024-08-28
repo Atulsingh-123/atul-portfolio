@@ -8,8 +8,6 @@ interface SliderProps {
 const Slider: React.FC<SliderProps> = ({ images = [] }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    console.log("slider", images);
-
     useEffect(() => {
         if (images.length === 0) return; 
 
