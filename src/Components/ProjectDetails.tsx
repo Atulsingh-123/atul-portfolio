@@ -17,12 +17,9 @@ const ProjectDetail: React.FC = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { project } = location.state as { project: Project };
-
-    console.log('Project images:', project.images);
     const handleBack = () => {
         navigate('/');
     };
-    console.log(project.images);
     return (
         <Layout>
             <motion.div className="flex items-center justify-center h-6 bg-gradient-to-r from-blue-500 to-purple-600">
